@@ -1,0 +1,385 @@
+@font-face {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url("fonts/space-mono-v12-latin-regular.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url("fonts/space-mono-v12-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+*{
+    box-sizing:border-box;
+    font-family: 'Space Mono';
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #030111;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color:white;
+    position: relative;
+    z-index: 1000;
+}
+.nav-name > b{
+    color: aquamarine
+}
+.navbar-links ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    user-select: none;
+}
+.navbar-links li{
+    list-style: none;
+
+}
+.navbar-links li:hover{
+    background-color: #555;
+}
+.navbar-links li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+.hamburg{
+    position: absolute;
+    font-size: xx-large;
+    display: none;
+    right: 1rem;
+}
+
+
+@media (max-width: 600px){
+    .hamburg{
+        display: flex;
+    }
+    .navbar-links{
+        display: flex;
+        width: 100%;
+    }
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar-links.active{
+        display: flex;
+    }
+    .navbar-links ul{
+        width: 100%;
+        flex-direction: column;
+    }
+    .navbar-links li{
+        text-align: center;
+    }
+    .navbar-links li a{
+        padding: .5rem 1rem;
+    }
+}
+.nav-name{
+    font-size: 1.5rem;
+    margin: .5rem;
+    user-select: none;
+}
+.nav-name b{
+    font-size: 1.5rem;
+    margin: .5rem;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: aquamarine;
+    background-color: transparent;
+    transition: background-color 300ms ease;
+}
+
+
+
+/*All of the above was for the navbar*/
+/*Now we start doing the content*/
+
+.intro-border{
+    left: 415px;
+    right: 415px;
+    margin-top: 3.375rem;
+    width: 1080px;
+    height: 900px;
+    border: 10px solid transparent;
+    border-radius: 20px;
+    border-image: linear-gradient(to bottom, #29154a, #e080c9) 1;
+    -webkit-mask: linear-gradient(#29154a 0 0) border-box, 
+                  linear-gradient(#e080c9 0 0);
+    -webkit-mask-composite: exclude;
+    background-image: linear-gradient(to bottom, #29154a, #e080c9) 1;
+    position: relative;
+    z-index: 30;
+}
+.profile{
+    background-image: url(./assets/profile.png);
+    image-rendering: crisp-edges;
+    background-position-x: -30px;
+    background-position-y: -20px;
+    background-size: 150%;
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 8px solid;
+    border-color: #190c2c;
+    position: absolute;
+    z-index: 15;
+    top: 175.5px;
+    left: 75px;
+}
+.banner{
+    background-image: url(./assets/banner.webp);
+    background-position-y: -120px;
+    border-radius: 3px;
+    width: 1058.5px;
+    height: 278px;
+    display: flex;
+    position:relative;
+    z-index: 10;
+}
+.online-status{
+    background-color: #3ba55d;
+    display: flex;
+    width: 56px;
+    height: 56px;
+    border: 7.5px solid #1e0d0e;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 16;
+    top: 300px;
+    left: 225px;
+}
+.online-status:hover + .online-display-wrapper{
+    visibility: visible;
+    opacity: 1;
+}
+.online-display-wrapper{
+    all: initial;   
+}
+.online-display-wrapper{
+    opacity: 0;
+    transition: visibility opacity 100ms ease-in;
+}
+.online-display{
+    background-color: #33185a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-size: x-large;
+    margin: 0;
+    position: absolute;
+    z-index: 100;
+    width: 115px;
+    height: 50px;
+    border-radius: 10px;
+    border-style: solid transparent;
+    top: 26.5%;
+    left: 18.5%;
+}
+.online-display-triangle{
+    margin: 0;
+    position: absolute;
+    z-index: 100;
+    border: solid;
+    border-width: 15px 10px;
+    border-color: #33185a transparent transparent transparent;
+    top: 32%;
+    left: 22.9025%;
+}
+
+.intro-bg{
+    top: 275.5px;
+    width: 1060px;
+    height: 605px;
+    background-image: linear-gradient(to bottom, #190c2c, #e2a0d3);
+    border-radius: 2.75px;
+    position: absolute;
+    z-index: 8;
+}
+/*background*/
+.bgi{
+    background-image: url(./assets/ori.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    opacity: 1;
+    position: absolute;
+    z-index: 5;
+}
+
+.intro-content{
+    /*intro-border --> width: 1080px, height: 900px*/
+    width: 900px;
+    height: 400px;
+    background-image: linear-gradient(to bottom, rgb(45, 26, 63) 0%,rgb(83, 59, 100) 75%,rgb(85, 71, 99) 100%);
+    border-radius: 10px;
+    position: absolute;
+    z-index: 50;
+    margin: 0;
+    top: 550px;
+    left: 505px;
+}
+.name{
+    padding: 2rem;
+    user-select: none;
+}
+.name b{
+    color: aquamarine;
+    font-size: xx-large;
+}
+.name i{
+    color: rgb(207, 205, 205);
+}
+.name p{
+    display: inline;
+    color: rgb(207, 205, 205);
+}
+.house{
+    all: initial;
+}
+.house{
+    position: absolute;
+    z-index: 50;
+    background-color: rgb(29, 16, 41);
+    left: 94%;
+    top: -30%;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+}
+.realhouse{
+    position:absolute;
+    z-index: 51;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 2rem;
+    background-position-x: 5px;
+    background-position-y: 5px;
+    background-image: url(./assets/bravery.png);
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+.house:hover + .house-display-wrapper{
+    visibility: visible;
+    opacity: 1;
+}
+.house-display-wrapper{
+    all: initial;   
+}
+.house-display-wrapper{
+    opacity: 0;
+    transition: visibility opacity 100ms ease-in;
+}
+.house-display{
+    background-color: #33185a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-size: x-large;
+    margin: 0;
+    position: absolute;
+    z-index: 100;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    border-style: solid transparent;
+    top: -45.5%;
+    left: 80%;
+}
+.house-display-triangle{
+    margin: 0;
+    position: absolute;
+    z-index: 100;
+    border: solid;
+    border-width: 15px 10px;
+    border-color: #33185a transparent transparent transparent;
+    top: -33%;
+    left: 95.75%;
+}
+
+
+.name-line{
+    border: 0.5px solid #584d4e;
+    width: 95%;
+}
+.aboutme{
+    position: absolute;
+    z-index: 50;
+    font-size: x-large;
+    color: white;
+    margin: 0;
+    padding: 1rem;
+    padding-left: 2rem;
+    user-select: none;
+}
+.aboutme p{
+    font-size: 22px;
+    color: rgb(207, 205, 205);
+}
+.aboutme p > i{
+    font-size:xx-small;
+    color:grey;
+}
+
+.proj{
+    font-size: 7rem;
+    color: azure;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+}
+.envclip{
+    position: relative;
+    z-index: 55;
+    padding: 2rem;
+    margin: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.envdes{
+    color: aliceblue;
+    font-size: 1.5rem;
+    position: relative;
+    left: 360px;
+    transform: translate(0, -1rem);
+}
+.portcov{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transform: translate(0, 2rem);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.portcovdes{
+    color: aliceblue;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+.mascot{
+    color: aliceblue;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+}
